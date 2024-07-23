@@ -40,5 +40,17 @@ class testDataHora(unittest.TestCase):
         self.assertFalse(valida_data(self.dh5))
         self.assertFalse(valida_data(self.dh6))
     
+    def test_converter_fuso(self):
+        pass
+
+    def test_diff_data(self):
+        pass
+
+    def test_soma_datas(self):
+        pass
+
+    def test_subtracao_datas(self):
+        pass
+
 if __name__ == '__main__':
     unittest.main()
