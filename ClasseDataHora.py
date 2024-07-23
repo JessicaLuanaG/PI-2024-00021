@@ -25,13 +25,15 @@ import unittest
 
 class testDataHora(unittest.TestCase):
     def setUp(self):
+       #Datas inválidas
        self.dh1 = DataHora(ano=2019,mes=2,dia=30,hora=12,min=30,seg=12)
        self.dh2 = DataHora(ano=2020,mes=6,dia=31,hora=0,min=30,seg=12)
        self.dh3 = DataHora(ano=2023,mes=2,dia=29,hora=0,min=30,seg=12)
        self.dh4 = DataHora(ano=2020,mes=8,dia=31,hora=0,min=61,seg=12)
        self.dh5 = DataHora(ano=2020,mes=6,dia=30,hora=0,min=30,seg=61)
        self.dh6 = DataHora(ano=2020,mes=6,dia=30,hora=25,min=30,seg=61)
-    
+       #Fazer o setup também de datas válidas, dá para pegar do histórico de commits
+
     def test_valida_data(self):
         self.assertFalse(valida_data(self.dh1))
         self.assertFalse(valida_data(self.dh2))
