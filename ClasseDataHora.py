@@ -1,34 +1,44 @@
 class DataHora:
+    def __init__(self, ano, mes, dia, hora, min, seg, fuso=0):
+        self.ano = ano
+        self.mes = mes
+        self.dia = dia
+        self.hora = hora
+        self.min = min
+        self.seg = seg
+        self.fuso = fuso
+    def __add__(self, other):
+        pass
+    def __sub__(self, other):
+        pass
+
+def valida_data(data):
+    pass
+
+def converter_fuso(data, novo_fuso):
+    pass
+
+def diff_data(data1, data2):
     pass
 
 import unittest
 
 class testDataHora(unittest.TestCase):
+    def setUp(self):
+       self.dh1 = DataHora(ano=2019,mes=2,dia=30,hora=12,min=30,seg=12)
+       self.dh2 = DataHora(ano=2020,mes=6,dia=31,hora=0,min=30,seg=12)
+       self.dh3 = DataHora(ano=2023,mes=2,dia=29,hora=0,min=30,seg=12)
+       self.dh4 = DataHora(ano=2020,mes=8,dia=31,hora=0,min=61,seg=12)
+       self.dh5 = DataHora(ano=2020,mes=6,dia=30,hora=0,min=30,seg=61)
+       self.dh6 = DataHora(ano=2020,mes=6,dia=30,hora=25,min=30,seg=61)
     
-   def setUp(self):
-       self.dh1 = DataHora(ano=2019,mes=2,dia=28,hora=12,min=30,seg=12)
-       self.dh2 = DataHora(ano=2020,mes=8,dia=5,hora=0,min=30,seg=12)
-       self.dh3 = DataHora(ano=1976,mes=2,dia=29,hora=0,min=30,seg=12)
-       self.dh4 = DataHora(ano=2020,mes=8,dia=31,hora=0,min=30,seg=12)
-       self.dh5 = DataHora(ano=2020,mes=6,dia=30,hora=0,min=30,seg=12)
-
-    def test_data_hora_fevereiro(self):
-        self.assertEqual(self.retorna_data(self.dh1(), 2019,2,28,12,30,12))
-        
-    def test_data_hora_normal(self):
-        self.assertEqual(self.retorna_data(self.dh2(), 2020,8,5,0,30,12))
-
-    def test_data_hora_bissexto(self):
-        self.assertEqual(self.retorna_data(self.dh3(), 1976,2,29,0,30,12))
-        
-    def test_data_hora_ultimo_dia_agosto(self):
-        self.assertEqual(self.retorna_data(self.dh4(), 2020,8,31,0,30,12))
-        
-    def test_data_hora_ultimo_dia_junho(self):
-        self.assertEqual(self.retorna_data(self.dh5(), 2020,6,30,0,30,12))
-        
+    def test_valida_data(self):
+        self.assertFalse(valida_data(self.dh1))
+        self.assertFalse(valida_data(self.dh2))
+        self.assertFalse(valida_data(self.dh3))
+        self.assertFalse(valida_data(self.dh4))
+        self.assertFalse(valida_data(self.dh5))
+        self.assertFalse(valida_data(self.dh6))
     
-    
-    
-    
-   
+if __name__ == '__main__':
+    unittest.main()
