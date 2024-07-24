@@ -46,7 +46,11 @@ class testDataHora(unittest.TestCase):
     
     def test_converter_fuso(self):
         self.assertEqual(converter_fuso(self.dh7, -3), DataHora(ano=2020,mes=6,dia=29,hora=21,min=0,seg=0))
-
+        self.assertEqual(converter_fuso(self.dh7, +5), DataHora(ano=2020,mes=6,dia=29,hora=5,min=0,seg=0))
+        self.assertEqual(converter_fuso(self.dh7, -1), DataHora(ano=2020,mes=6,dia=29,hora=23,min=0,seg=0))
+        self.assertEqual(converter_fuso(self.dh7, 0), DataHora(ano=2020,mes=6,dia=29,hora=0,min=0,seg=0))
+        self.assertEqual(converter_fuso(self.dh7, +4), DataHora(ano=2020,mes=6,dia=29,hora=4,min=0,seg=0))
+    
     def test_diff_data(self):
         pass
 
