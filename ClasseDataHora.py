@@ -35,7 +35,12 @@ class testDataHora(unittest.TestCase):
        #Fazer o setup também de datas válidas, dá para pegar do histórico de commits
        self.dh7 = DataHora(ano=2020,mes=6,dia=30,hora=0,min=0,seg=0, fuso=0)
        self.dh8 = DataHora(ano=2020,mes=6,dia=29,hora=0,min=0,seg=0, fuso=0)
-
+       self.dh9 = DataHora(ano=2026,mes=6,dia=29,hora=0,min=0,seg=0, fuso=0)
+       self.dh10 = DataHora(ano=2026,mes=10,dia=29,hora=0,min=0,seg=0, fuso=0) 
+       self.dh11 = DataHora(ano=2026,mes=10,dia=29,hora=12,min=0,seg=0, fuso=0)  
+       self.dh12 = DataHora(ano=2026,mes=10,dia=29,hora=0,min=25,seg=0, fuso=0)     
+    
+    
     def test_valida_data(self):
         self.assertFalse(valida_data(self.dh1))
         self.assertFalse(valida_data(self.dh2))
@@ -53,8 +58,12 @@ class testDataHora(unittest.TestCase):
         self.assertEqual(converter_fuso(self.dh7, +4), DataHora(ano=2020,mes=6,dia=29,hora=4,min=0,seg=0))
     
     def test_diff_data(self):
-        self.assertEqual(diff_data(self.dh7, self.dh8), DataHora(ano=0, mes=0, dia=1, hora=0, min=0))
-
+        self.assertEqual(diff_data(self.dh7, self.dh8), DataHora(ano=0, mes=0, dia=1, hora=0, min=0, seg=0))
+        self.assertEqual(diff_data(self.dh8, self.dh9), DataHora(ano=6, mes=0, dia=0, hora=0, min=0, seg=0))
+        self.assertEqual(diff_data(self.dh9, self.dh10), DataHora(ano=0, mes=4, dia=0, hora=0, min=0, seg=0))
+        self.assertEqual(diff_data(self.dh10, self.dh11), DataHora(ano=0, mes=4, dia=0, hora=12, min=0, seg=0))
+        self.assertEqual(diff_data(self.dh11, self.dh12), DataHora(ano=0, mes=4, dia=0, hora=0, min=25, seg=0))
+    
     def test_soma_datas(self):
         pass
 
