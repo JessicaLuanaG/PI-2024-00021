@@ -18,8 +18,8 @@ def valida_data(data):
 def converter_fuso(data, novo_fuso):
     pass
 
-def diff_data(data1, data2):
-    pass
+def diff_data(data1, data2) -> DataHora:
+    return DataHora(0, 0, 0, 0, 0, 0)
 
 import unittest
 
@@ -34,6 +34,7 @@ class testDataHora(unittest.TestCase):
        self.dh6 = DataHora(ano=2020,mes=6,dia=30,hora=25,min=30,seg=61)
        #Fazer o setup também de datas válidas, dá para pegar do histórico de commits
        self.dh7 = DataHora(ano=2020,mes=6,dia=30,hora=0,min=0,seg=0, fuso=0)
+       self.dh8 = DataHora(ano=2020,mes=6,dia=29,hora=0,min=0,seg=0, fuso=0)
 
     def test_valida_data(self):
         self.assertFalse(valida_data(self.dh1))
@@ -52,7 +53,7 @@ class testDataHora(unittest.TestCase):
         self.assertEqual(converter_fuso(self.dh7, +4), DataHora(ano=2020,mes=6,dia=29,hora=4,min=0,seg=0))
     
     def test_diff_data(self):
-        pass
+        self.assertEqual(diff_data(self.dh7, self.dh8), DataHora(ano=0, mes=0, dia=1, hora=0, min=0))
 
     def test_soma_datas(self):
         pass
