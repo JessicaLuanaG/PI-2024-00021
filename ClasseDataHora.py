@@ -61,8 +61,8 @@ class testDataHora(unittest.TestCase):
         self.assertEqual(diff_data(self.dh7, self.dh8), DataHora(ano=0, mes=0, dia=1, hora=0, min=0, seg=0))
         self.assertEqual(diff_data(self.dh8, self.dh9), DataHora(ano=6, mes=0, dia=0, hora=0, min=0, seg=0))
         self.assertEqual(diff_data(self.dh9, self.dh10), DataHora(ano=0, mes=4, dia=0, hora=0, min=0, seg=0))
-        self.assertEqual(diff_data(self.dh10, self.dh11), DataHora(ano=0, mes=4, dia=0, hora=12, min=0, seg=0))
-        self.assertEqual(diff_data(self.dh11, self.dh12), DataHora(ano=0, mes=4, dia=0, hora=0, min=25, seg=0))
+        self.assertEqual(diff_data(self.dh10, self.dh11), DataHora(ano=0, mes=0, dia=0, hora=12, min=0, seg=0))
+        self.assertEqual(diff_data(self.dh11, self.dh12), DataHora(ano=0, mes=0, dia=0, hora=0, min=25, seg=0))
     
     def test_soma_datas(self):
         pass
