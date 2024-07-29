@@ -49,6 +49,11 @@ class testDataHora(unittest.TestCase):
         self.assertFalse(valida_data(self.dh5))
         self.assertFalse(valida_data(self.dh6))
         self.assertTrue(valida_data(self.dh7))
+        self.assertTrue(valida_data(self.dh8))
+        self.assertTrue(valida_data(self.dh9))
+        self.assertTrue(valida_data(self.dh10))
+        self.assertTrue(valida_data(self.dh11))
+        self.assertTrue(valida_data(self.dh12))
     
     def test_converter_fuso(self):
         self.assertEqual(converter_fuso(self.dh7, -3), DataHora(ano=2020,mes=6,dia=29,hora=21,min=0,seg=0))
