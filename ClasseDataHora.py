@@ -40,7 +40,7 @@ class testDataHora(unittest.TestCase):
        self.dh11 = DataHora(ano=2026,mes=10,dia=29,hora=12,min=0,seg=0, fuso=0)  
        self.dh12 = DataHora(ano=2026,mes=10,dia=29,hora=0,min=25,seg=0, fuso=0)     
     
-    
+
     def test_valida_data(self):
         self.assertFalse(valida_data(self.dh1))
         self.assertFalse(valida_data(self.dh2))
@@ -65,10 +65,10 @@ class testDataHora(unittest.TestCase):
         self.assertEqual(diff_data(self.dh11, self.dh12), DataHora(ano=0, mes=0, dia=0, hora=0, min=25, seg=0))
     
     def test_soma_datas(self):
-        pass
+        self.assertEqual(self.dh10 + self.dh11, DataHora(ano=2153, mes=8, dia=28, hora=12, minuto=0, segundo=0))
 
     def test_subtracao_datas(self):
-        pass
+        self.assertEqual(self.dh11 - self.dh10, DataHora(ano=0, mes=0, dia=0, hora=12, min=0, seg=0))
 
 if __name__ == '__main__':
     unittest.main()
